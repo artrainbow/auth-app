@@ -1,5 +1,5 @@
 import { LoginOutput, LoginParams } from '@types'
-import { API_AUTH_LOGIN, AUTH_CACHE_MIN } from '@constants'
+import { API_AUTH_LOGIN } from '@constants'
 
 export const login = async ({
   username,
@@ -12,6 +12,8 @@ export const login = async ({
     credentials: 'include',
   })
 
+  console.log('username', { username, password, response })
+
   if (!response.ok) {
     const { message } = (await response.json()) || {}
     throw new Error(message)
@@ -19,5 +21,3 @@ export const login = async ({
 
   return response.json()
 }
-
-export const logout = () => {}

@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { StyleSheet } from 'react-native'
+import { type GestureResponderEvent, StyleSheet } from 'react-native'
 import { ButtonBase } from './ButtonBase'
 import { ButtonText } from './ButtonText'
 import {
@@ -11,14 +11,14 @@ import {
   PADDING_VERTICAL,
 } from './constants'
 
-type LightButtonProps<T extends unknown[] = []> = {
+type LightButtonProps = {
   title: string
   disabled?: boolean
-  onPress: (...args: T) => void
+  onPress: (event: GestureResponderEvent) => void
 }
 
 export const LightButton = memo(
-  <T extends unknown[]>({ title, disabled, onPress }: LightButtonProps<T>) => (
+  <T extends unknown[]>({ title, disabled, onPress }: LightButtonProps) => (
     <ButtonBase disabled={disabled} onPress={onPress} style={styles.gray}>
       <ButtonText title={title} color="dark" />
     </ButtonBase>

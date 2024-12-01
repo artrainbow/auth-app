@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, TextInput, View, Text } from 'react-native'
 import {
   BACKGROUND_COLOR,
@@ -18,6 +18,12 @@ export const InputBase = ({
   placeholder,
   error,
   onChangeText,
+}: {
+  value: string
+  label: string
+  placeholder: string
+  error: boolean
+  onChangeText: (text: string) => void
 }) => {
   const [focused, setFocused] = useState(false)
 
@@ -50,7 +56,6 @@ export const InputBase = ({
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         value={value}
-        contextMenuHidden
         autoCorrect={false}
         selectTextOnFocus={false}
         spellCheck={false}

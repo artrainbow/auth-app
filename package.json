@@ -6,7 +6,9 @@
     "start": "expo start -c",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "ts:check": "yarn tsc --pretty --noEmit",
+    "eslint:fix": "yarn eslint . --fix",
+    "format:prettier": "yarn prettier --write ."
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "1.23.1",

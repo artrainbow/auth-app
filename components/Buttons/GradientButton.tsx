@@ -1,5 +1,5 @@
-import { memo, ReactNode } from 'react'
-import { StyleSheet, ViewStyle } from 'react-native'
+import { memo } from 'react'
+import { type GestureResponderEvent, StyleSheet } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { ButtonBase } from './ButtonBase'
 import { ButtonText } from './ButtonText'
@@ -10,22 +10,18 @@ import {
   PADDING_VERTICAL,
 } from './constants'
 
-type GradientButtonProps<T extends unknown[] = []> = {
+type GradientButtonProps = {
   title: string
   disabled?: boolean
-  onPress: (...args: T) => void
+  onPress: (event: GestureResponderEvent) => void
 }
 
 export const GradientButton = memo(
-  <T extends unknown[]>({
-    title,
-    disabled,
-    onPress,
-  }: GradientButtonProps<T>) => (
+  <T extends unknown[]>({ title, disabled, onPress }: GradientButtonProps) => (
     <ButtonBase disabled={disabled} onPress={onPress}>
       <LinearGradient
         style={styles.gradient}
-        colors={GRADIENT_COLORS}
+        colors={[GRADIENT_COLORS[0], GRADIENT_COLORS[1]]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}
       >

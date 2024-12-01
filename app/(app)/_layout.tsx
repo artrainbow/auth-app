@@ -11,7 +11,6 @@ const Layout = () => {
       screenOptions={{
         headerShown: false,
         headerBackButtonDisplayMode: 'minimal',
-        headerBackTintColor: HEADER_TINT_COLOR,
         headerShadowVisible: false,
         headerStyle: {
           backgroundColor: MAIN_CONTAINER_BACKGROUND,

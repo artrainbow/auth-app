@@ -3,6 +3,7 @@ import t from '@translations'
 import { GradientButton } from '../Buttons/GradientButton'
 import { Input } from './Input'
 import { MessageBox } from './MessageBox'
+import { LoginErrorState } from '@types'
 
 export const AuthForm = ({
   username,
@@ -12,6 +13,14 @@ export const AuthForm = ({
   setPassword,
   setUsername,
   signIn,
+}: {
+  username: string
+  password: string
+  errorFormValidation: LoginErrorState
+  errorServerValidation: string
+  setPassword: React.Dispatch<React.SetStateAction<string>>
+  setUsername: React.Dispatch<React.SetStateAction<string>>
+  signIn: () => void
 }) => {
   return (
     <>
@@ -26,6 +35,7 @@ export const AuthForm = ({
         value={password}
         label={t.password_label}
         placeholder={t.password_placeholder}
+        // @ts-ignore
         secureTextEntry
         error={errorFormValidation.password}
         onChangeText={setPassword}

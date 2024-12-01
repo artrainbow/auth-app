@@ -12,6 +12,7 @@
     "strictFunctionTypes": true,
     "noImplicitAny": true,
     "skipDefaultLibCheck": true,
+    "baseUrl": "./",
     "paths": {
       "@actions": ["actions"],
       "@components": ["components"],
@@ -19,7 +20,7 @@
       "@hooks": ["hooks"],
       "@types": ["types"],
       "@utils": ["utils"],
-      "@translations": ["i18n"],
+      "@translations": ["i18n"]
     }
   }
 }

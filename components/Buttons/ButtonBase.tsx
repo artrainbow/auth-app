@@ -1,13 +1,15 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import type { GestureResponderEvent } from 'react-native'
 import { StyleSheet, TouchableOpacity, ViewStyle } from 'react-native'
 import debounce from 'debounce'
+import type { DebouncedFunction } from 'debounce'
 import { DEBOUNCE_TIMEOUT } from './constants'
 
-type ButtonBaseProps<T extends unknown[] = []> = {
+type ButtonBaseProps = {
   children: ReactNode
   style?: ViewStyle
   disabled?: boolean
-  onPress: (...args: T) => void
+  onPress: (event: GestureResponderEvent) => void
 }
 
 export const ButtonBase = <T extends unknown[]>({
@@ -15,7 +17,7 @@ export const ButtonBase = <T extends unknown[]>({
   style = {},
   disabled = false,
   onPress,
-}: ButtonBaseProps<T>) => {
+}: ButtonBaseProps) => {
   const handlePress = debounce(onPress, DEBOUNCE_TIMEOUT, { immediate: true })
 
   return (

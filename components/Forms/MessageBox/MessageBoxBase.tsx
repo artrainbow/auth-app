@@ -1,8 +1,9 @@
 import React from 'react'
+import type { ReactNode } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 
-export const MessageBoxBase = ({ children }) => {
+export const MessageBoxBase = ({ children }: { children: ReactNode }) => {
   return (
     <View style={styles.errorContainer}>
       <MaterialIcons
