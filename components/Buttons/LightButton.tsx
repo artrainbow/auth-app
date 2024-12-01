@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { type GestureResponderEvent, StyleSheet } from 'react-native'
 import { ButtonBase } from './ButtonBase'
 import { ButtonText } from './ButtonText'

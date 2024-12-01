@@ -1,5 +1,5 @@
 import { LoginOutput, LoginParams } from '@types'
-import { API_AUTH_LOGIN } from '@constants'
+import { API_AUTH_LOGIN, AUTH_API_EXPIRATION_TIMEOUT } from '@constants'
 
 export const login = async ({
   username,
@@ -8,11 +8,13 @@ export const login = async ({
   const response = await fetch(API_AUTH_LOGIN, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password, expiresInMins: 0 }),
+    body: JSON.stringify({
+      username,
+      password,
+      expiresInMins: AUTH_API_EXPIRATION_TIMEOUT,
+    }),
     credentials: 'include',
   })
-
-  console.log('username', { username, password, response })
 
   if (!response.ok) {
     const { message } = (await response.json()) || {}

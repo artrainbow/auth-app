@@ -1,10 +1,12 @@
 import React from 'react'
 import { Stack } from 'expo-router'
-import { useAuth } from '@hooks'
 import { HEADER_TINT_COLOR, MAIN_CONTAINER_BACKGROUND } from '@constants'
+import { useScreenTitle } from '@hooks'
+import { getScreenOptions } from '@utils'
+import { Route } from '@types'
 
 const Layout = () => {
-  const { data } = useAuth()
+  const { title } = useScreenTitle()
 
   return (
     <Stack
@@ -21,10 +23,13 @@ const Layout = () => {
       <Stack.Screen name="(unprotected)" />
       <Stack.Screen
         name="(protected)"
-        options={({ route }) => ({
-          headerShown: true,
-          title: data ? `${data.firstName} ${data.lastName}` : route.name,
-        })}
+        options={({ route }) =>
+          getScreenOptions({
+            route: route as Route,
+            title,
+            options: { headerShown: true },
+          })
+        }
       />
     </Stack>
   )

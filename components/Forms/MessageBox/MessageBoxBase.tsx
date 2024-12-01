@@ -1,36 +1,25 @@
-import React from 'react'
 import type { ReactNode } from 'react'
 import { StyleSheet, View } from 'react-native'
-import { MaterialIcons } from '@expo/vector-icons'
+import {
+  BORDER_RADIUS,
+  ERROR_COLOR,
+  HEIGHT,
+  MARGIN,
+  PADDING,
+} from '../constants'
 
 export const MessageBoxBase = ({ children }: { children: ReactNode }) => {
-  return (
-    <View style={styles.errorContainer}>
-      <MaterialIcons
-        name="error-outline"
-        size={20}
-        color="white"
-        style={styles.errorIcon}
-      />
-      {children}
-    </View>
-  )
+  return <View style={styles.errorContainer}>{children}</View>
 }
 
 const styles = StyleSheet.create({
   errorContainer: {
-    backgroundColor: 'red',
-    padding: 10,
-    borderRadius: 5,
-    marginBottom: 15,
+    backgroundColor: ERROR_COLOR,
+    height: HEIGHT,
+    borderRadius: BORDER_RADIUS,
+    paddingHorizontal: PADDING,
+    marginBottom: MARGIN,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  errorIcon: {
-    marginRight: 15,
-  },
-  errorText: {
-    color: 'white',
-    fontSize: 14,
   },
 })

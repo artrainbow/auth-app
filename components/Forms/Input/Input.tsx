@@ -1,21 +1,17 @@
-import React from 'react'
+import { memo } from 'react'
 import { ErrorText } from './ErrorText'
 import { InputBase } from './InputBase'
 
-export const Input = ({
-  value,
-  label,
-  placeholder,
-  error,
-  onChangeText,
-}: {
+type InputProps = {
   value: string
   label: string
   placeholder: string
   error: string
   onChangeText: (text: string) => void
-}) => {
-  return (
+}
+
+export const Input = memo(
+  ({ value, label, placeholder, error, onChangeText }: InputProps) => (
     <>
       <InputBase
         value={value}
@@ -26,5 +22,5 @@ export const Input = ({
       />
       {Boolean(error) ? <ErrorText text={error} /> : null}
     </>
-  )
-}
+  ),
+)

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAuth } from '@hooks'
+import { useAuthQuery } from '@hooks'
 import { AuthForm, RootContainer } from '@components'
 
 const LoginScreen: React.FC = () => {
@@ -11,7 +11,7 @@ const LoginScreen: React.FC = () => {
     errorServerValidation,
     setUsername,
     setPassword,
-  } = useAuth()
+  } = useAuthQuery()
 
   return (
     <RootContainer>

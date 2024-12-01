@@ -1,16 +1,26 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { StyleSheet, TextInput, View, Text } from 'react-native'
 import {
-  BACKGROUND_COLOR,
-  BORDER_COLOR,
+  DEFAULT_COLOR,
   BORDER_RADIUS,
   BORDER_WIDTH,
   ERROR_COLOR,
   FOCUSED_COLOR,
   HEIGHT,
-  MARGIN_INPUT,
-  PADDING_INPUT,
-} from './constants'
+  MARGIN,
+  PADDING,
+  FONT_SIZE_SMALL,
+  FONT_SIZE_REGULAR,
+  WHITE_COLOR,
+} from '../constants'
+
+type InputBaseProps = {
+  value: string
+  label: string
+  placeholder: string
+  error: boolean
+  onChangeText: (text: string) => void
+}
 
 export const InputBase = ({
   value,
@@ -18,13 +28,7 @@ export const InputBase = ({
   placeholder,
   error,
   onChangeText,
-}: {
-  value: string
-  label: string
-  placeholder: string
-  error: boolean
-  onChangeText: (text: string) => void
-}) => {
+}: InputBaseProps) => {
   const [focused, setFocused] = useState(false)
 
   return (
@@ -50,7 +54,7 @@ export const InputBase = ({
       )}
       <TextInput
         style={[styles.input, focused && styles.focusedInput]}
-        placeholderTextColor={error ? ERROR_COLOR : BORDER_COLOR}
+        placeholderTextColor={error ? ERROR_COLOR : DEFAULT_COLOR}
         placeholder={focused ? '' : placeholder}
         onChangeText={onChangeText}
         onFocus={() => setFocused(true)}
@@ -73,25 +77,24 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: HEIGHT,
-    backgroundColor: BACKGROUND_COLOR,
+    backgroundColor: WHITE_COLOR,
     borderRadius: BORDER_RADIUS,
-    paddingHorizontal: PADDING_INPUT,
+    paddingHorizontal: PADDING,
     paddingVertical: 0,
-    marginBottom: MARGIN_INPUT,
+    marginBottom: MARGIN,
     borderWidth: BORDER_WIDTH,
-    borderColor: BORDER_COLOR,
+    borderColor: DEFAULT_COLOR,
     justifyContent: 'center',
   },
   input: {
     height: HEIGHT,
-    fontSize: 16,
+    fontSize: FONT_SIZE_REGULAR,
   },
   label: {
     flex: 1,
   },
   labelText: {
-    fontSize: 12,
-    fontWeight: 400,
+    fontSize: FONT_SIZE_SMALL,
   },
   errorText: {
     color: ERROR_COLOR,
@@ -109,7 +112,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   focusedInput: {
-    height: 16,
-    fontSize: 12,
+    height: FONT_SIZE_REGULAR,
+    fontSize: FONT_SIZE_SMALL,
   },
 })

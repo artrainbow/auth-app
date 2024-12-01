@@ -4,12 +4,12 @@ import { QueryClient } from '@tanstack/react-query'
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
 import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { GLOBAL_CACHE } from '@constants'
+import { CACHE_TIMEOUT } from '@constants'
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      gcTime: GLOBAL_CACHE,
+      gcTime: CACHE_TIMEOUT,
     },
   },
 })
@@ -24,7 +24,7 @@ const Layout = () => {
       client={queryClient}
       persistOptions={{
         persister: asyncStoragePersister,
-        maxAge: GLOBAL_CACHE,
+        maxAge: CACHE_TIMEOUT,
       }}
     >
       <Slot />

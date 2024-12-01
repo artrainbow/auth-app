@@ -1,2 +1,2 @@
-export const GLOBAL_CACHE = 1000 * 60 * 60 // 1 hour
-export const AUTH_CACHE = 5000 // 5 sec
+export const AUTH_API_EXPIRATION_TIMEOUT = 1 // min
+export const CACHE_TIMEOUT = 1000 * 60 // 1 min in ms

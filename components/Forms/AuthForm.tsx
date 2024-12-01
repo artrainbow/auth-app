@@ -1,9 +1,18 @@
-import React from 'react'
 import t from '@translations'
+import { LoginErrorState } from '@types'
 import { GradientButton } from '../Buttons/GradientButton'
 import { Input } from './Input'
 import { MessageBox } from './MessageBox'
-import { LoginErrorState } from '@types'
+
+type AuthFormProps = {
+  username: string
+  password: string
+  errorFormValidation: LoginErrorState
+  errorServerValidation: string
+  setPassword: React.Dispatch<React.SetStateAction<string>>
+  setUsername: React.Dispatch<React.SetStateAction<string>>
+  signIn: () => void
+}
 
 export const AuthForm = ({
   username,
@@ -13,15 +22,7 @@ export const AuthForm = ({
   setPassword,
   setUsername,
   signIn,
-}: {
-  username: string
-  password: string
-  errorFormValidation: LoginErrorState
-  errorServerValidation: string
-  setPassword: React.Dispatch<React.SetStateAction<string>>
-  setUsername: React.Dispatch<React.SetStateAction<string>>
-  signIn: () => void
-}) => {
+}: AuthFormProps) => {
   return (
     <>
       <Input
@@ -41,7 +42,7 @@ export const AuthForm = ({
         onChangeText={setPassword}
       />
       {Boolean(errorServerValidation) && (
-        <MessageBox text={errorServerValidation} />
+        <MessageBox text={errorServerValidation} type="error" />
       )}
       <GradientButton
         title={t.login}

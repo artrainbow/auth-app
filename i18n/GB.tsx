@@ -6,4 +6,7 @@ export const GB = {
   password_label: 'Password',
   username_placeholder: 'Enter username',
   password_placeholder: 'Enter password',
+  username_ui_error: 'Username is required',
+  password_ui_error: 'Password is required',
+  default_server_error: 'Network response is not ok',
 }

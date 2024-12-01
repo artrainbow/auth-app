@@ -1,11 +1,20 @@
-import React from 'react'
+import { memo } from 'react'
+import type { ReactNode } from 'react'
 import { MessageBoxBase } from './MessageBoxBase'
-import { MessageErrorText } from './MessageErrorText'
+import { ErrorMessage } from './ErrorMessage'
 
-export const MessageBox = ({ text }: { text: string }) => {
-  return (
-    <MessageBoxBase>
-      <MessageErrorText text={text} />
-    </MessageBoxBase>
-  )
-}
+export const MessageBox = memo(
+  ({ text, type }: { text: string; type: 'error' }) => {
+    let children: ReactNode
+
+    switch (type) {
+      case 'error':
+        children = <ErrorMessage text={text} />
+        break
+      default:
+        children = null
+    }
+
+    return <MessageBoxBase>{children}</MessageBoxBase>
+  },
+)

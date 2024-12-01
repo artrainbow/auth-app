@@ -2,8 +2,7 @@ import type { ReactNode } from 'react'
 import type { GestureResponderEvent } from 'react-native'
 import { StyleSheet, TouchableOpacity, ViewStyle } from 'react-native'
 import debounce from 'debounce'
-import type { DebouncedFunction } from 'debounce'
-import { DEBOUNCE_TIMEOUT } from './constants'
+import { DEBOUNCE_TIMEOUT, DISABLED_OPACITY } from './constants'
 
 type ButtonBaseProps = {
   children: ReactNode
@@ -38,5 +37,5 @@ export const ButtonBase = <T extends unknown[]>({
 const styles = StyleSheet.create({
   button: { width: '100%' },
   enabled: { opacity: 1 },
-  disabled: { opacity: 0.32 },
+  disabled: { opacity: DISABLED_OPACITY },
 })

@@ -1,10 +1,10 @@
 import React from 'react'
-import { useAuth } from '@hooks'
+import { useAuthQuery } from '@hooks'
 import { RootContainer, LightButton } from '@components'
 import t from '@translations'
 
 const ProfileScreen = () => {
-  const { signOut } = useAuth()
+  const { signOut } = useAuthQuery()
 
   return (
     <RootContainer position="top">
