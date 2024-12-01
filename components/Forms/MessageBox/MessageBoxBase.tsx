@@ -1,16 +1,16 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-// import { MaterialIcons } from '@expo/vector-icons'
+import { MaterialIcons } from '@expo/vector-icons'
 
 export const MessageBoxBase = ({ children }) => {
   return (
     <View style={styles.errorContainer}>
-      {/*<MaterialIcons*/}
-      {/*  name="error-outline"*/}
-      {/*  size={20}*/}
-      {/*  color="white"*/}
-      {/*  style={styles.errorIcon}*/}
-      {/*/>*/}
+      <MaterialIcons
+        name="error-outline"
+        size={20}
+        color="white"
+        style={styles.errorIcon}
+      />
       {children}
     </View>
   )

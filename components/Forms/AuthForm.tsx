@@ -1,8 +1,8 @@
-import t from '@translations'
 import React from 'react'
-import { GradientButton } from '@components'
+import t from '@translations'
+import { GradientButton } from '../Buttons/GradientButton'
 import { Input } from './Input'
-// import { MessageBox } from './MessageBox'
+import { MessageBox } from './MessageBox'
 
 export const AuthForm = ({
   username,
@@ -30,9 +30,9 @@ export const AuthForm = ({
         error={errorFormValidation.password}
         onChangeText={setPassword}
       />
-      {/*{Boolean(errorServerValidation) && (*/}
-      {/*  <MessageBox text={errorServerValidation} />*/}
-      {/*)}*/}
+      {Boolean(errorServerValidation) && (
+        <MessageBox text={errorServerValidation} />
+      )}
       <GradientButton
         title={t.login}
         disabled={!username && !password}
