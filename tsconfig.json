@@ -1,0 +1,25 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "strictFunctionTypes": true,
+    "noImplicitAny": true,
+    "skipDefaultLibCheck": true,
+    "paths": {
+      "@actions": ["actions"],
+      "@components": ["components"],
+      "@constants": ["constants"],
+      "@hooks": ["hooks"],
+      "@types": ["types"],
+      "@utils": ["utils"],
+      "@translations": ["i18n"],
+    }
+  }
+}

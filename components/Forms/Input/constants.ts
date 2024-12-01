@@ -1,0 +1,10 @@
+export const HEIGHT = 53
+export const BACKGROUND_COLOR = '#FFF'
+export const BORDER_RADIUS = 10
+export const PADDING_INPUT = 15
+export const MARGIN_INPUT = 15
+export const MARGIN_ERROR = 10
+export const BORDER_WIDTH = 1
+export const BORDER_COLOR = '#E0E0E0'
+export const ERROR_COLOR = '#FF3B30'
+export const FOCUSED_COLOR = '#338BFF'
