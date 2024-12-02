@@ -1,4 +1,5 @@
 # APP AUTH
+
 This is a test-example of Auth app, based on Expo
 
 ## Requirements
@@ -12,11 +13,12 @@ This is a test-example of Auth app, based on Expo
 
 `yarn install`
 
-## Run the project 
+## Run the project
 
 `yarn start`
 
 ## Use cases:
+
 1. The user should navigate from the Home page to the Login page.
 2. On the Login page, the user enters a username and password.
 3. If the username or password is invalid, display an error message.
@@ -27,8 +29,9 @@ This is a test-example of Auth app, based on Expo
 8. If the user is unauthorized or the token is invalid, automatically redirect them to the Home page from the Profile page. For example, if the user is on the Profile page and their session suddenly becomes invalid, they should be automatically logged out.
 
 ## Credentials (only for the testing purpose):
-- username: ```emilys```
-- password: ```emilyspass```
+
+- username: `emilys`
+- password: `emilyspass`
 
 ## API documentation
 
