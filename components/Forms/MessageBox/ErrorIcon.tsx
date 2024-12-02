@@ -1,7 +1,7 @@
-import { MaterialIcons } from '@expo/vector-icons'
-import { ICON_SIZE_REGULAR, MARGIN, WHITE_COLOR } from '../constants'
 import React from 'react'
 import { StyleSheet } from 'react-native'
+import { MaterialIcons } from '@expo/vector-icons'
+import { ICON_SIZE_REGULAR, MARGIN, WHITE_COLOR } from '../constants'
 
 export const ErrorIcon = () => (
   <MaterialIcons

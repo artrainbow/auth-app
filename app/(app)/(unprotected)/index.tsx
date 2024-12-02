@@ -1,3 +1,4 @@
+import React from 'react'
 import { useRouter } from 'expo-router'
 import { GradientButton, RootContainer } from '@components'
 import t from '@translations'

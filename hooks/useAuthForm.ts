@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { LoginErrorState } from '@types'
+import type { LoginErrorState } from '@types'
 
 export const useAuthForm = () => {
   const [username, setUsername] = useState('')

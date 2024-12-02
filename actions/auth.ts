@@ -1,4 +1,4 @@
-import { LoginOutput, LoginParams } from '@types'
+import type { LoginOutput, LoginParams } from '@types'
 import { API_AUTH_LOGIN, AUTH_API_EXPIRATION_TIMEOUT } from '@constants'
 
 export const login = async ({

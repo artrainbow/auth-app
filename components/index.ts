@@ -1,4 +1,5 @@
 export * from './RootContainer'
 export * from './Buttons/GradientButton'
 export * from './Buttons/LightButton'
+export * from './Buttons/HeaderBackButton'
 export * from './Forms/AuthForm'

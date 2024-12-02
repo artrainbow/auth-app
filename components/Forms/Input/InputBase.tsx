@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, TextInput, View, Text } from 'react-native'
 import {
   DEFAULT_COLOR,
@@ -12,6 +12,7 @@ import {
   FONT_SIZE_SMALL,
   FONT_SIZE_REGULAR,
   WHITE_COLOR,
+  PLACEHOLDER_COLOR,
 } from '../constants'
 
 type InputBaseProps = {
@@ -54,7 +55,7 @@ export const InputBase = ({
       )}
       <TextInput
         style={[styles.input, focused && styles.focusedInput]}
-        placeholderTextColor={error ? ERROR_COLOR : DEFAULT_COLOR}
+        placeholderTextColor={error ? ERROR_COLOR : PLACEHOLDER_COLOR}
         placeholder={focused ? '' : placeholder}
         onChangeText={onChangeText}
         onFocus={() => setFocused(true)}

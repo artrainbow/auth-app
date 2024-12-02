@@ -1,9 +1,10 @@
-import { useMutation } from '@tanstack/react-query'
 import { useCallback, useState } from 'react'
-import { useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'expo-router'
 import { login } from '@actions'
 import t from '@translations'
+import type { LoginOutput } from '@types'
+import { AUTH_QUERY_KEY } from '@constants'
 import { useAuthForm } from './useAuthForm'
 
 export const useAuthQuery = () => {
@@ -19,16 +20,20 @@ export const useAuthQuery = () => {
   const queryClient = useQueryClient()
   const [errorServerValidation, setErrorServerValidation] = useState('')
 
+  const handleError = (error: Error) => {
+    setErrorServerValidation(error.message || t.default_server_error)
+  }
+
+  const handleSuccess = (data: LoginOutput) => {
+    queryClient.setQueryData([AUTH_QUERY_KEY], data)
+    router.replace({ pathname: 'profile' })
+  }
+
   const mutation = useMutation(
     {
       mutationFn: login,
-      onError: error => {
-        setErrorServerValidation(error.message || t.default_server_error)
-      },
-      onSuccess: data => {
-        queryClient.setQueryData(['auth'], data)
-        router.replace({ pathname: 'profile' })
-      },
+      onError: handleError,
+      onSuccess: handleSuccess,
       retry: 0,
     },
     queryClient,
@@ -47,7 +52,7 @@ export const useAuthQuery = () => {
   }, [username, password])
 
   const handleSignOut = useCallback(() => {
-    queryClient.removeQueries({ queryKey: ['auth'] })
+    queryClient.removeQueries({ queryKey: [AUTH_QUERY_KEY] })
     router.replace({ pathname: 'login' })
   }, [])
 

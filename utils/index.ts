@@ -1,1 +1,1 @@
-export * from './getScreenOptions'
+export * from './getScreenTitle'

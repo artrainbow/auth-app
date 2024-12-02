@@ -2,7 +2,7 @@ import React from 'react'
 import { useAuthQuery } from '@hooks'
 import { AuthForm, RootContainer } from '@components'
 
-const LoginScreen: React.FC = () => {
+const LoginScreen = () => {
   const {
     signIn,
     username,

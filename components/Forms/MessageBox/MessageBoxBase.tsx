@@ -1,3 +1,4 @@
+import React from 'react'
 import type { ReactNode } from 'react'
 import { StyleSheet, View } from 'react-native'
 import {
@@ -8,9 +9,9 @@ import {
   PADDING,
 } from '../constants'
 
-export const MessageBoxBase = ({ children }: { children: ReactNode }) => {
-  return <View style={styles.errorContainer}>{children}</View>
-}
+export const MessageBoxBase = ({ children }: { children: ReactNode }) => (
+  <View style={styles.errorContainer}>{children}</View>
+)
 
 const styles = StyleSheet.create({
   errorContainer: {

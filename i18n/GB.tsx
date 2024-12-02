@@ -9,4 +9,5 @@ export const GB = {
   username_ui_error: 'Username is required',
   password_ui_error: 'Password is required',
   default_server_error: 'Network response is not ok',
+  greeting: 'Hi',
 }

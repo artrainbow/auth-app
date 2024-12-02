@@ -1,3 +1,4 @@
+import React from 'react'
 import { StyleSheet, Text } from 'react-native'
 import { ERROR_COLOR, FONT_SIZE_SMALL, MARGIN_ERROR } from '../constants'
 

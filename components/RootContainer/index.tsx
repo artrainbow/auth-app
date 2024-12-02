@@ -1,3 +1,4 @@
+import React from 'react'
 import type { ReactNode } from 'react'
 import { StyleSheet, SafeAreaView } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
@@ -10,17 +11,15 @@ export const RootContainer = ({
 }: {
   children: ReactNode
   position?: 'top' | 'center' | 'bottom'
-}) => {
-  return (
-    <SafeAreaView style={styles.root}>
-      <KeyboardAwareScrollView
-        contentContainerStyle={[styles.container, styles[position]]}
-      >
-        {children}
-      </KeyboardAwareScrollView>
-    </SafeAreaView>
-  )
-}
+}) => (
+  <SafeAreaView style={styles.root}>
+    <KeyboardAwareScrollView
+      contentContainerStyle={[styles.container, styles[position]]}
+    >
+      {children}
+    </KeyboardAwareScrollView>
+  </SafeAreaView>
+)
 
 const styles = StyleSheet.create({
   root: {
