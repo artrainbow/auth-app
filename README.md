@@ -36,3 +36,7 @@ This is a test-example of Auth app, based on Expo
 ## API documentation
 
 https://dummyjson.com
+
+## Designs
+
+https://www.figma.com/design/Mh9yeoaYG8dS2hEXe5cZpR/Test-project-form?node-id=0-1&node-type=canvas&t=J58rTWOm1tFeSPhQ-0
